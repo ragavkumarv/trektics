@@ -1,0 +1,31 @@
+<section class="example-form">
+  <md-toolbar color="accent" class="mat-elevation-z4">Transfer Fund</md-toolbar>
+  <md-card>
+    <form (ngSubmit)="finalSubmit(form)" [formGroup]="form">
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="Sender A/C" formControlName="sndrAc">
+      </md-input-container>
+      <md-input-container class="example-full-width">
+        <!-- <span mdPrefix>Rs.</span> -->
+        <input mdInput placeholder="Balance" formControlName="bal">
+      </md-input-container>
+      <md-input-container class="example-full-width">
+        <!-- <span mdPrefix>Rs.</span> -->
+        <input mdInput placeholder="Date & Time" formControlName="dtTm">
+      </md-input-container>
+      <md-select placeholder="Recepient Branch" class="example-full-width" formControlName="recpBranch">
+        <md-option *ngFor="let rB of recBranches" [value]="rB.acNo">
+          {{rB.place}} - A/C No. {{rB.acNo}}
+        </md-option>
+      </md-select>
+      <md-input-container class="example-full-width">
+        <!-- <span mdPrefix>Rs. &nbsp;</span> -->
+        <input type="number" mdInput placeholder="Tranfer Amount" formControlName="tfamt">
+        </md-input-container>
+      <md-input-container class="example-full-width">
+        <textarea mdInput rows="3" placeholder="Remarks" formControlName="remarks"></textarea>
+      </md-input-container>
+      <button type="submit" md-raised-button [disabled]="form.invalid" class="example-full-width" color="accent">Submit</button>
+    </form>
+  </md-card>
+</section>
